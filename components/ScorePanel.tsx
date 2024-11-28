@@ -66,7 +66,7 @@ const styles = StyleSheet.create({
   scoreValue: {
     fontSize: 36,
     fontWeight: 'bold',
-    color: '#4C1F7A',
+    color: '#2C3E50',
     marginBottom: 8,
   },
   riskText: {

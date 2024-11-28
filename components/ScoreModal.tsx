@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { Modal, View, Text, TouchableOpacity, StyleSheet, TextInput, ScrollView, Alert } from 'react-native';
+import { Modal, View, Text, TouchableOpacity, StyleSheet, TextInput, ScrollView, Alert, Keyboard } from 'react-native';
 import { useScoreStore } from '../stores/scoreStore';
+
 
 interface ScoreModalProps {
   isVisible: boolean;
@@ -68,6 +69,7 @@ const ScoreModal = ({ isVisible, onClose, score }: ScoreModalProps) => {
   };
 
   const handleContinue = () => {
+    Keyboard.dismiss(); // Oculta el teclado
     if (!dataSent) {
       setShowPatientData(true);
     } else {
@@ -84,6 +86,7 @@ const ScoreModal = ({ isVisible, onClose, score }: ScoreModalProps) => {
   };
 
   const handleSendData = () => {
+    Keyboard.dismiss(); // Oculta el teclado
     if (dataSent) {
       Alert.alert(
         'Datos ya enviados',
@@ -197,7 +200,7 @@ const ScoreModal = ({ isVisible, onClose, score }: ScoreModalProps) => {
             />
           </View>
 
-          <View style={styles.rowInputs}>
+          <View style={styles.inputGroup}>
             <View style={[styles.inputGroup, { flex: 1 }]}>
               <Text style={styles.inputLabel}>Edad gestacional *</Text>
               <TextInput
@@ -223,7 +226,7 @@ const ScoreModal = ({ isVisible, onClose, score }: ScoreModalProps) => {
 
           <View style={styles.selectedOptionsContainer}>
             <Text style={styles.selectedOptionsTitle}>Resumen de la Evaluación:</Text>
-            <Text style={styles.totalScore}>Puntaje Total: {score} de 24 puntos</Text>
+            <Text style={styles.totalScore}>Puntaje: {score} puntos</Text>
             <Text style={[styles.riskLevel, { color: risk.color }]}>
               Nivel de Riesgo: {risk.text}
             </Text>
@@ -301,7 +304,7 @@ const styles = StyleSheet.create({
   modalTitle: {
     fontSize: 24,
     fontWeight: 'bold',
-    color: '#4C1F7A',
+    color: '#2C3E50',
     marginBottom: 20,
   },
   dateText: {
@@ -321,7 +324,7 @@ const styles = StyleSheet.create({
   scoreValue: {
     fontSize: 36,
     fontWeight: 'bold',
-    color: '#4C1F7A',
+    color: '#2C3E50',
   },
   scoreMax: {
     fontSize: 16,
@@ -343,7 +346,7 @@ const styles = StyleSheet.create({
   },
   question: {
     fontSize: 18,
-    color: '#4C1F7A',
+    color: '#2C3E50',
     marginBottom: 20,
     textAlign: 'center',
   },
@@ -380,12 +383,12 @@ const styles = StyleSheet.create({
   selectedOptionsTitle: {
     fontSize: 18,
     fontWeight: 'bold',
-    color: '#4C1F7A',
+    color: '#3498DB',
     marginBottom: 12,
   },
   totalScore: {
-    fontSize: 16,
-    color: '#4C1F7A',
+    fontSize: 22,
+    color: '#000000',
     fontWeight: 'bold',
     marginBottom: 4,
   },
@@ -417,7 +420,7 @@ const styles = StyleSheet.create({
     minWidth: 120,
   },
   sendButton: {
-    backgroundColor: '#4C1F7A',
+    backgroundColor: '#3498DB',
   },
   closeButton: {
     backgroundColor: '#F44336',

@@ -106,7 +106,7 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 24,
     fontWeight: 'bold',
-    color: '#4C1F7A',
+    color: '#2C3E50',
     marginBottom: 20,
     textAlign: 'center',
   },
@@ -118,17 +118,29 @@ const styles = StyleSheet.create({
   },
   optionButton: {
     backgroundColor: '#FFFFFF',
-    padding: 20,
-    borderRadius: 10,
+    padding: 18,
+    borderRadius: 16,
     borderWidth: 1,
-    borderColor: '#219B9D',
-  },
+    marginBottom:14,
+    borderColor: 'rgba(0, 0, 0, 0.05)',
+    shadowColor: '#1a1a1a',
+    shadowOffset: {
+        width: 0,
+        height: 2,
+      },
+      shadowOpacity: 0.1,
+      shadowRadius: 3,
+      elevation: 3,
+      transform: [{ scale: 1 }],
+    },
+
+  
   selectedOption: {
-    backgroundColor: '#219B9D',
+    backgroundColor: '#2C3E50',
   },
   optionText: {
     fontSize: 16,
-    color: '#FF7849',
+    color: '#2C3E50',
     textAlign: 'center',
   },
   selectedOptionText: {
@@ -136,7 +148,7 @@ const styles = StyleSheet.create({
   },
   optionDescription: {
     fontSize: 14,
-    color: '#898121',
+    color: '#666666',
     textAlign: 'center',
     marginTop: 8,
   },

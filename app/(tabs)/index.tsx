@@ -47,7 +47,7 @@ export default function Home() {
     return Object.keys(scores).length > 0;
   };
 
-  const getTotalCategories = () => 7;
+  const getTotalCategories = () => 6;
   const getCompletedCategories = () => Object.keys(scores).length;
 
   return (
@@ -168,7 +168,7 @@ export default function Home() {
           onPress={() => handleNavigateToOptions('Actividad', 'activity')}
         >
           <View style={styles.buttonContent}>
-            <MaterialCommunityIcons name="human-handsup" size={24} color={scores['activity'] ? "#FFFFFF" : "#D91656"} />
+            <MaterialCommunityIcons name="human-handsup" size={24} color={scores['activity'] ? "#FFFFFF" : "#22177A"} />
             <View style={styles.textContainer}>
               <Text style={[
                 styles.buttonText,
