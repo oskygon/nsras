@@ -3,6 +3,7 @@ import { Modal, View, Text, TouchableOpacity, StyleSheet, TextInput, ScrollView,
 import { useScoreStore } from '../stores/scoreStore';
 
 
+
 interface ScoreModalProps {
   isVisible: boolean;
   onClose: () => void;
@@ -69,7 +70,6 @@ const ScoreModal = ({ isVisible, onClose, score }: ScoreModalProps) => {
   };
 
   const handleContinue = () => {
-    Keyboard.dismiss(); // Oculta el teclado
     if (!dataSent) {
       setShowPatientData(true);
     } else {
@@ -86,7 +86,6 @@ const ScoreModal = ({ isVisible, onClose, score }: ScoreModalProps) => {
   };
 
   const handleSendData = () => {
-    Keyboard.dismiss(); // Oculta el teclado
     if (dataSent) {
       Alert.alert(
         'Datos ya enviados',
@@ -94,6 +93,7 @@ const ScoreModal = ({ isVisible, onClose, score }: ScoreModalProps) => {
         [{ text: 'OK', onPress: onClose }]
       );
       return;
+      Keyboard.dismiss();
     }
 
     if (!validateFields()) {

@@ -7,6 +7,7 @@ import ScoreModal from '../../components/ScoreModal';
 import ScorePanel from '../../components/ScorePanel';
 import { useScoreStore } from '../../stores/scoreStore';
 
+
 export default function Home() {
   const [isModalVisible, setModalVisible] = useState(false);
   const { totalScore, scores, resetScores } = useScoreStore();
